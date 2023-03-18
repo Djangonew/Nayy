@@ -6,6 +6,14 @@
     "repository": "https://github.com/hitokizzy/Geez-Pyro",
     "stack": "container",
     "env": {
+        "API_ID": {
+            "description": "fill with the pyrogram V2 session string from @kazu_stringbot",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "fill with the pyrogram V2 session string from @kazu_stringbot",
+            "required": true
+        },
         "SESSION1": {
             "description": "fill with the pyrogram V2 session string from @kazu_stringbot",
             "required": true
