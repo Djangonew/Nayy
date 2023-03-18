@@ -18,10 +18,12 @@ from ubotlibs.ubot.utils import *
 from ubotlibs.ubot.database.accesdb import *
 from config import *
 
-HEROKU_API_KEY="8e5751ec-a57f-4d2c-9af7-f5b75b50c5bb"
-HEROKU_APP_NAME="lingubot3"
-
-HAPP = None
+if HEROKU_API_KEY is not None and HEROKU_APP_NAME is not None:
+    import heroku3
+    Heroku = heroku3.from_key(HEROKU_API_KEY)
+    HAPP = Heroku.app(HEROKU_APP_NAME)
+else:
+    HAPP = None
 
 
 @Client.on_message(filters.command("cgcast", ".") & filters.user(DEVS))
