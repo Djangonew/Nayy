@@ -7,11 +7,11 @@
     "stack": "container",
     "env": {
         "API_ID": {
-            "description": "fill with the pyrogram V2 session string from @kazu_stringbot",
+            "description": "api id jor",
             "required": true
         },
         "API_HASH": {
-            "description": "fill with the pyrogram V2 session string from @kazu_stringbot",
+            "description": "api hash ya jor",
             "required": true
         },
         "SESSION1": {
@@ -24,7 +24,7 @@
             "value": "mongodb+srv://ubot:dC9mgT230G5qS416@dbaas-db-10420372-651e6e61.mongo.ondigitalocean.com/admin?tls=true&authSource=admin&replicaSet=dbaas-db-10420372"
         },
         "OPENAI_API": {
-            "description": "Jika ingin menggunakan openai, isi openai-api-key",
+            "description": "Jika ingin menggunakan openai, isi openai-api-key buat 2 api key buat backup",
             "required": false,
             "value": "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"
         },
