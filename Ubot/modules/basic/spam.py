@@ -59,34 +59,42 @@ async def delayspam(client: Client, message: Message):
 
 @Ubot(commands, cmds)
 async def sspam(client: Client, message: Message):
+    amount = 1
+    text = ""
+
     if message.reply_to_message:
         replied_message = message.reply_to_message
         replied_text = replied_message.text
-        text = " ".join(message.command[1:]) if len(message.command) > 1 else replied_text
     else:
         replied_message = None
         replied_text = None
-        text = " ".join(message.command[1:]) if len(message.command) > 1 else ""
 
-    amount = 1
-    if len(message.command) > 1:
+    args = message.pattern_match.group(1)
+    if args:
         try:
-            amount = int(message.command[1])
+            amount = int(args.split()[0])
         except ValueError:
             pass
+        text = " ".join(args.split()[1:])
 
-    cooldown = {"spam": 0.10, "statspam": 0.5, "slowspam": 0.8, "fspam": 0.5}
+    cooldown = {"spam": 0.15, "statspam": 0.5, "slowspam": 0.9, "fspam": 0.5}
+
     await message.delete()
+
     for msg in range(amount):
-        if replied_message:
-            sent = await replied_message.reply(text)
-        else:
+        if text:
             sent = await client.send_message(message.chat.id, text)
+        elif replied_message:
+            sent = await replied_message.reply(replied_text)
+        else:
+            sent = await client.send_message(message.chat.id, "Please provide a message to spam.")
 
         if message.command[0] == "statspam":
             await asyncio.sleep(0.5)
             await sent.delete()
+
         await asyncio.sleep(cooldown[message.command[0]])
+
 
 
 
