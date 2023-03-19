@@ -14,23 +14,22 @@ from ubotlibs.ubot.database.accesdb import *
 from asyncio import gather
 from Ubot.core.what import *
 from Ubot.core.ai import OpenAi
-from config import OPENAI_API_KEY
+from Ubot import AI
 
 
 RMBG_API_KEY = "3RCCWg8tMBfDWdAs44YMfJmC"
 
-API = "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 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".split()
         
 
 @Ubot(["ai", "ask"], cmds)
 async def openai(c, m):
-    openai.api_key = random.choice(API)
+    
     if len(m.command) == 1:
         return await m.reply(f"Ketik <code>{prefix}{m.command[0]} [question]</code> Pertanyaan untuk menggunakan OpenAI")
     question = m.text.split(" ", maxsplit=1)[1]
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {openai.api_key}",
+        "Authorization": f"Bearer {AI}",
     }
 
     json_data = {
