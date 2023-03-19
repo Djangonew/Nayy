@@ -14,7 +14,7 @@ from ubotlibs.ubot.database.accesdb import *
 from asyncio import gather
 from Ubot.core.what import *
 from Ubot.core.ai import OpenAi
-from Ubot import AI
+from config import OPENAI_API
 
 
 RMBG_API_KEY = "3RCCWg8tMBfDWdAs44YMfJmC"
@@ -29,7 +29,7 @@ async def openai(c, m):
     question = m.text.split(" ", maxsplit=1)[1]
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {AI}",
+        "Authorization": f"Bearer {OPENAI_API}",
     }
 
     json_data = {
