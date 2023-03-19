@@ -27,36 +27,39 @@ async def denied_users(filter, client: Client, message: Message):
 @Client.on_message(filters.command(["antipm"], cmds) & filters.me)
 async def pmguard(client, message):
     arg = get_arg(message)
+    user_id = message.from_user.id
     if not arg:
         await message.edit("**Gunakan `on` untuk menghidupkan atau `off` untuk mematikan**")
         return
     if arg == "off":
-        await set_pm(False)
+        await set_pm(user_id, False)
         await message.edit("**Anti PM Off**")
     if arg == "on":
-        await set_pm(True)
+        await set_pm(user_id, True)
         await message.edit("**Anti PM On**")
         
 @Client.on_message(filters.command(["setpm"], cmds) & filters.me)
 async def setpmmsg(client, message):
     arg = get_arg(message)
+    user_id = message.from_user.id
     if not arg:
         await message.edit("**Mohon berikan pesan**")
         return
     if arg == "default":
-        await set_permit_message(PMPERMIT_MESSAGE)
+        await set_permit_message(user_id, PMPERMIT_MESSAGE)
         await message.edit("**Pesan Anti PM Diset Default**.")
         return
-    await set_permit_message(f"`{arg}`")
+    await set_permit_message(user_id, f"`{arg}`")
     await message.edit("**Pesan Anti PM Diset**")
     
 @Client.on_message(filters.command(["setlimit"], cmds) & filters.me)
 async def pmguard(client, message):
     arg = get_arg(message)
+    user_id = message.from_user.id
     if not arg:
         await message.edit("**Gunakan format angka**")
         return
-    await set_limit(int(arg))
+    await set_limit(user_id, int(arg))
     await message.edit(f"**Limit diset {arg}**")
 
 
@@ -64,14 +67,15 @@ async def pmguard(client, message):
 @Client.on_message(filters.command(["setblock"], cmds) & filters.me)
 async def setpmmsg(client, message):
     arg = get_arg(message)
+    user_id = message.from_user.id
     if not arg:
         await message.edit("**Berikan pesan blokir**")
         return
     if arg == "default":
-        await set_block_message(BLOCKED)
+        await set_block_message(user_id, BLOCKED)
         await message.edit("**Block pesan diset default**.")
         return
-    await set_block_message(f"`{arg}`")
+    await set_block_message(user_id, f"`{arg}`")
     await message.edit("**Pesan Blokir Berhasil Diset**")
 
 
