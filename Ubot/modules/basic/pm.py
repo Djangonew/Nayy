@@ -63,7 +63,6 @@ async def pmguard(client, message):
     await message.edit(f"**Limit diset {arg}**")
 
 
-
 @Client.on_message(filters.command(["setblock"], cmds) & filters.me)
 async def setpmmsg(client, message):
     arg = get_arg(message)
@@ -108,11 +107,11 @@ async def deny(client, message):
     & ~filters.via_bot
 )
 async def reply_pm(app: Client, message):
+    user_id = message.from_user.id
     global FLOOD_CTRL
-    pmpermit, pm_message, limit, block_message = await get_pm_settings()
+    pmpermit, pm_message, limit, block_message = await get_pm_settings(user_id)
     user = message.from_user.id
     user_warns = 0 if user not in USERS_AND_WARNS else USERS_AND_WARNS[user]
-    user_id = message.from_user.id
     tai = f"<b>📨 PESAN BARU</b>\n<b> • : </b>{message.from_user.mention}"
     tai += f"\n<b> • 👀 </b><a href='{message.link}'>Lihat Pesan</a>"
     tai += f"\n<b> • Message : </b><code>{message.text}</code>"
