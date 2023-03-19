@@ -99,13 +99,13 @@ async def reply_pm(client, message):
     tai = f"<b>📨 PESAN BARU</b>\n<b> • : </b>{message.from_user.mention}"
     tai += f"\n<b> • 👀 </b><a href='{message.link}'>Lihat Pesan</a>"
     tai += f"\n<b> • Message : </b><code>{message.text}</code>"
-    await asyncio.sleep(0.1)
-    if PM_LOGGER:
-        await app.send_message(
-                 BOTLOG_CHATID,
-                 tai,
-                 parse_mode=enums.ParseMode.HTML,
-                 disable_web_page_preview=True)
+#    await asyncio.sleep(0.1)
+#    if PM_LOGGER:
+#        await app.send_message(
+#                 BOTLOG_CHATID,
+#                 tai,
+#                 parse_mode=enums.ParseMode.HTML,
+#                 disable_web_page_preview=True)
     if user_warns <= limit - 2:
         user_warns += 1
         USERS_AND_WARNS.update({user: user_warns})
