@@ -63,10 +63,17 @@ async def sspam(client: Client, message: Message):
         replied_message = message.reply_to_message
         replied_text = replied_message.text
         text = " ".join(message.command[1:]) if len(message.command) > 1 else replied_text
-        amount = int(message.command[0])
     else:
-        text = " ".join(message.command[1:])
-        amount = int(message.command[0])
+        replied_message = None
+        replied_text = None
+        text = " ".join(message.command[1:]) if len(message.command) > 1 else ""
+
+    amount = 1
+    if len(message.command) > 1:
+        try:
+            amount = int(message.command[1])
+        except ValueError:
+            pass
 
     cooldown = {"spam": 0.10, "statspam": 0.5, "slowspam": 0.8, "fspam": 0.5}
     await message.delete()
@@ -80,6 +87,7 @@ async def sspam(client: Client, message: Message):
             await asyncio.sleep(0.5)
             await sent.delete()
         await asyncio.sleep(cooldown[message.command[0]])
+
 
 
 
