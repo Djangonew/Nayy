@@ -28,6 +28,11 @@
             "required": false,
             "value": "sk"
         },
+        "PM_LOGGER": {
+            "description": "PM Log",
+            "required": true,
+            "value": "True"
+        },
         "BOT_TOKEN": {
             "description": "fill with your bot token get from @BotFather on telegram",
             "required": true,
