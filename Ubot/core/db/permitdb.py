@@ -57,7 +57,7 @@ async def get_pm_settings(user_id: int):
     if not result:
         return False
     pmpermit = result["pmpermit"]
-    pm_message = result.get("pmpermit_message", PM_PERMIT_MESSAGE)
+    pm_message = result.get("pmpermit_message", PMPERMIT_MESSAGE)
     block_message = result.get("block_message", BLOCKED_MESSAGE)
     limit = result.get("limit", LIMIT)
     return pmpermit, pm_message, limit, block_message
