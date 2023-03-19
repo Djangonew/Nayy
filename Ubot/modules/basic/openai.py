@@ -113,6 +113,7 @@ add_command_help(
         [f"toimg <reply stiker>", "Convert stiker ke foto."],
         [f"cartoon [reply to image]", "Ubah gambar menggunakan deepai api."],
         [f"toonify [reply to image]", "Untuk mempercantik gambar menggunakan deepai api."],
+        [f"pcil [reply to image]", "Untuk membuat gambar hitam putih."],
         [f"face [reply to image]", "Untuk memeriksa deteksi wajah."],
     ],
 )
