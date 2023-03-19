@@ -60,16 +60,17 @@ async def delayspam(client: Client, message: Message):
 @Ubot(commands, cmds)
 async def sspam(client: Client, message: Message):
     amount = int(message.command[1])
-    text = " ".join(message.command[2:])
-
-    cooldown = {"spam": 0.15, "statspam": 0.5, "slowspam": 0.9, "fspam": 0.5}
 
     if message.reply_to_message:
         replied_message = message.reply_to_message
         replied_text = replied_message.text
+        text = " ".join(message.command[1:]) if len(message.command) > 1 else replied_text
     else:
         replied_message = None
         replied_text = None
+        text = " ".join(message.command[1:])
+
+    cooldown = {"spam": 0.10, "statspam": 0.5, "slowspam": 0.8, "fspam": 0.5}
 
     await message.delete()
 
