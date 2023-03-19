@@ -24,7 +24,7 @@ async def denied_users(filter, client: Client, message: Message):
         return True
 
 
-@Ubot("antipm", cmds)
+@Client.on_message(filters.command(["antipm"], cmds) & filters.me)
 async def pmguard(client, message):
     arg = get_arg(message)
     if not arg:
@@ -37,7 +37,7 @@ async def pmguard(client, message):
         await set_pm(True)
         await message.edit("**Anti PM On**")
         
-@Ubot("setpmmsg", cmds)
+@Client.on_message(filters.command(["setpm"], cmds) & filters.me)
 async def setpmmsg(client, message):
     arg = get_arg(message)
     if not arg:
@@ -50,7 +50,7 @@ async def setpmmsg(client, message):
     await set_permit_message(f"`{arg}`")
     await message.edit("**Pesan Anti PM Diset**")
     
-@Ubot("setlimit", cmds)
+@Client.on_message(filters.command(["setlimit"], cmds) & filters.me)
 async def pmguard(client, message):
     arg = get_arg(message)
     if not arg:
@@ -61,7 +61,7 @@ async def pmguard(client, message):
 
 
 
-@Ubot("setblocking", cmds)
+@Client.on_message(filters.command(["setblock"], cmds) & filters.me)
 async def setpmmsg(client, message):
     arg = get_arg(message)
     if not arg:
@@ -140,11 +140,11 @@ async def reply_pm(app: Client, message):
 add_command_help(
     "antipm",
     [
-        [f"{cmds}pmguard [on or off]", " -> mengaktifkan dan menonaktifkan anti-pm."],
-        [f"{cmds}setpmmsg [message or default]", " -> Sets a custom anti-pm message."],
-        [f"{cmds}setblockmsg [message or default]", "-> Sets custom block message."],
-        [f"{cmds}setlimit [value]", " -> This one sets a max. message limit for unwanted PMs and when they go beyond it, bamm!."],
-        [f"{cmds}ok", " -> Allows a user to PM you."],
-        [f"{cmds}no", " -> Denies a user to PM you."],
+        [f"antipm [on or off]", " -> mengaktifkan dan menonaktifkan anti-pm."],
+        [f"setpm [message or default]", " -> Sets a custom anti-pm message."],
+        [f"setblock [message or default]", "-> Sets custom block message."],
+        [f"setlimit [value]", " -> This one sets a max. message limit for unwanted PMs and when they go beyond it, bamm!."],
+        [f"ok", " -> Allows a user to PM you."],
+        [f"no", " -> Denies a user to PM you."],
     ],
 )
