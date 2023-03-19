@@ -42,7 +42,7 @@ async def pmguard(client, message):
     if not arg:
         await message.edit("**Gunakan format angka**")
         return
-    await set_limit(user_id, int(arg))
+    await nay.set_limit(user_id, int(arg))
     await message.edit(f"**Limit diset {arg}**")
 
 
@@ -54,10 +54,10 @@ async def setpmmsg(client, message):
         await message.edit("**Berikan pesan blokir**")
         return
     if arg == "default":
-        await set_block_message(user_id, BLOCKED)
+        await nay.set_block_message(user_id, nay.BLOCKED)
         await message.edit("**Block pesan diset default**.")
         return
-    await set_block_message(user_id, f"`{arg}`")
+    await nay.set_block_message(user_id, f"`{arg}`")
     await message.edit("**Pesan Blokir Berhasil Diset**")
 
 
