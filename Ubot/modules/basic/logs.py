@@ -57,3 +57,29 @@ async def set_no_log(client, message):
     await mati_log(user_id, message)
     await message.edit("**Logger Tag Berhasil Dimatikan**"
             )
+
+
+@Client.on_message(filters.group & filters.mentioned & filters.incoming)
+async def log_tagged_messages(app: Client, message):
+
+    user_id = message.from_user.id
+    tai = f"<b>📨 PESAN BARU</b>\n<b> • : </b>{message.from_user.mention}"
+    tai += f"\n<b> • Group : </b>{message.chat.title}"
+    tai += f"\n<b> • 👀 </b><a href='{message.link}'>Lihat Pesan</a>"
+    tai += f"\n<b> • Message : </b><code>{message.text}</code>"
+    await asyncio.sleep(0.1)
+    await app.send_message(
+        BOTLOG_CHATID,
+        tai,
+        parse_mode=enums.ParseMode.HTML,
+        disable_web_page_preview=True,
+    )
+    
+    
+add_command_help(
+    "logger",
+    [
+        [f"log", "Untuk menghidupkan log tag."],
+        [f"nolog", "Untuk mematikan log tag."],
+    ],
+)
