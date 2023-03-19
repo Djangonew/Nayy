@@ -1,6 +1,6 @@
-from . import cli
+from . import db
 
-collection = cli["pmpermit"]
+collection = db["pmpermit"]
 
 PMPERMIT_MESSAGE = (
     "**Jangan spam atau Anda akan diblokir, jadi berhati-hatilah untuk mengirim pesan pesan!**"
