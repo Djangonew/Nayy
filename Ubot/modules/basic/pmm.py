@@ -90,7 +90,7 @@ async def deny(client, message):
     & ~filters.bot
     & ~filters.via_bot
 )
-async def reply_pm(app: Client, message):
+async def reply_pm(client, message):
     user_id = message.from_user.id
     global FLOOD_CTRL
     pmpermit, pm_message, limit, block_message = await get_pm_settings(user_id)
@@ -114,12 +114,12 @@ async def reply_pm(app: Client, message):
         else:
             FLOOD_CTRL = 0
             return
-        async for message in app.search_messages(
+        async for message in client.search_messages(
             chat_id=message.chat.id, query=pm_message, limit=1, from_user="me"
         ):
             await message.delete()
         await message.reply(pm_message, disable_web_page_preview=True)
         return
     await message.reply(block_message, disable_web_page_preview=True)
-    await app.block_user(message.chat.id)
+    await client.block_user(message.chat.id)
     USERS_AND_WARNS.update({user: 0})
