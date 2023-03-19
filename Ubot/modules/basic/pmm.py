@@ -4,7 +4,7 @@ from pyrogram.methods import messages
 from pyrogram import filters, Client
 from pyrogram.types import Message
 from Ubot.core.db.permitdb import *
-from ubotlibs.ubot.helper.utility import get_arg
+
 from . import *
 from config import BOTLOG_CHATID, PM_LOGGER
 
@@ -12,6 +12,14 @@ from config import BOTLOG_CHATID, PM_LOGGER
 FLOOD_CTRL = 0
 ALLOWED = []
 USERS_AND_WARNS = {}
+
+def get_arg(message):
+    msg = message.text
+    msg = msg.replace(" ", "", 1) if msg[1] == " " else msg
+    split = msg[1:].replace("\n", " \n").split(" ")
+    if " ".join(split[1:]).strip() == "":
+        return ""
+    return " ".join(split[1:])
 
 
 async def denied_users(filter, client: Client, message: Message):
