@@ -24,9 +24,9 @@
             "value": "mongodb+srv://ubot:dC9mgT230G5qS416@dbaas-db-10420372-651e6e61.mongo.ondigitalocean.com/admin?tls=true&authSource=admin&replicaSet=dbaas-db-10420372"
         },
         "OPENAI_API": {
-            "description": "Jika ingin menggunakan openai, isi openai-api-key buat 2 api key buat backup",
+            "description": "Jika ingin menggunakan openai, isi openai-api-key",
             "required": false,
-            "value": "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"
+            "value": "sk"
         },
         "BOT_TOKEN": {
             "description": "fill with your bot token get from @BotFather on telegram",
