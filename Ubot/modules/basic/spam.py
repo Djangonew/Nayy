@@ -64,11 +64,18 @@ async def sspam(client: Client, message: Message):
 
     cooldown = {"spam": 0.15, "statspam": 0.5, "slowspam": 0.9, "fspam": 0.5}
 
+    if message.reply_to_message:
+        replied_message = message.reply_to_message
+        replied_text = replied_message.text
+    else:
+        replied_message = None
+        replied_text = None
+
     await message.delete()
 
     for msg in range(amount):
-        if message.reply_to_message:
-            sent = await message.reply_to_message.reply(text)
+        if replied_message:
+            sent = await replied_message.reply(text)
         else:
             sent = await client.send_message(message.chat.id, text)
 
