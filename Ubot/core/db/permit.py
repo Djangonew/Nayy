@@ -1,4 +1,4 @@
-from . import cli
+from ubotlibs.ubot.database import cli
 
 collection = cli["pmpermit"]
 
