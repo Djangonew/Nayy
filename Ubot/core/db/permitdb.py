@@ -49,7 +49,7 @@ async def set_limit(user_id: int, limit):
         await collection.update_one({"_id": user_id}, {"$set": {"limit": limit}})
     else:
         await collection.insert_one(doc)
-})
+
 
 
 async def get_pm_settings():
