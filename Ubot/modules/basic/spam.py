@@ -57,8 +57,13 @@ async def delayspam(client: Client, message: Message):
     )
 
 
+from pyrogram import Client, filters
+from pyrogram.types import Message
+import asyncio
+
+# Command Handler
 @Ubot(commands, cmds)
-async def sspam(client: Client, message: Message):
+async def sspam(client, message):
     amount = 1
     text = ""
 
@@ -69,13 +74,13 @@ async def sspam(client: Client, message: Message):
         replied_message = None
         replied_text = None
 
-    args = message.pattern_match.group(1)
-    if args:
+    args = message.text.split(None, 1)
+    if len(args) > 1:
         try:
-            amount = int(args.split()[0])
+            amount = int(args[1].split()[0])
         except ValueError:
             pass
-        text = " ".join(args.split()[1:])
+        text = " ".join(args[1].split()[1:])
 
     cooldown = {"spam": 0.15, "statspam": 0.5, "slowspam": 0.9, "fspam": 0.5}
 
@@ -94,8 +99,6 @@ async def sspam(client: Client, message: Message):
             await sent.delete()
 
         await asyncio.sleep(cooldown[message.command[0]])
-
-
 
 
 
