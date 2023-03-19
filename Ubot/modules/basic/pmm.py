@@ -3,6 +3,7 @@ import asyncio
 from pyrogram.methods import messages
 from pyrogram import filters, Client
 from pyrogram.types import Message
+from Ubot.core.db import permitdb as nay
 from Ubot.core.db.permitdb import *
 
 from . import *
