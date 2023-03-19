@@ -52,7 +52,7 @@ async def set_limit(user_id: int, limit):
 
 
 
-async def get_pm_settings():
+async def get_pm_settings(user_id: int):
     result = await collection.find_one({"_id": user_id})
     if not result:
         return False
