@@ -1,4 +1,5 @@
 FROM debian:11
+FROM python:3.10.5-slim-buster
 
 RUN git clone https://github.com/ayrizz/Nay /home/ubot/
 WORKDIR /home/ubot
