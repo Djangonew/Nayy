@@ -23,7 +23,7 @@
             "required": true,
             "value": "mongodb+srv://ubot:dC9mgT230G5qS416@dbaas-db-10420372-651e6e61.mongo.ondigitalocean.com/admin?tls=true&authSource=admin&replicaSet=dbaas-db-10420372"
         },
-        "OPENAI_API": {
+        "AI": {
             "description": "Jika ingin menggunakan openai, isi openai-api-key",
             "required": false,
             "value": "sk"
