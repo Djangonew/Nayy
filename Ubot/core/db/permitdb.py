@@ -85,7 +85,7 @@ async def deny_user(chat):
     await collection.update_one({"_id": "Approved"}, {"$pull": {"users": chat}})
 
 
-async def pm_guard():
+async def pm_guard(user_id: int):
     result = await collection.find_one({"_id": user_id})
     if not result:
         return False
