@@ -3,7 +3,9 @@ import asyncio
 from pyrogram.methods import messages
 from pyrogram import filters, Client
 from pyrogram.types import Message
+from Ubot.core.db import permitdb as nay
 from Ubot.core.db.permitdb import *
+
 
 from . import *
 from .pmm import denied_users, get_arg
@@ -18,10 +20,10 @@ async def pmguard(client, message):
         await message.edit("**Gunakan `on` untuk menghidupkan atau `off` untuk mematikan**")
         return
     if arg == "off":
-        await set_pm(user_id, False)
+        await nay.set_pm(user_id, False)
         await message.edit("**Anti PM Off**")
     if arg == "on":
-        await set_pm(user_id, True)
+        await nay.set_pm(user_id, True)
         await message.edit("**Anti PM On**")
         
 @Client.on_message(filters.command(["setpm"], cmds) & filters.me)
@@ -32,10 +34,10 @@ async def setpmmsg(client, message):
         await message.edit("**Mohon berikan pesan**")
         return
     if arg == "default":
-        await set_permit_message(user_id, PMPERMIT_MESSAGE)
+        await nay.set_permit_message(user_id, nay.PMPERMIT_MESSAGE)
         await message.edit("**Pesan Anti PM Diset Default**.")
         return
-    await set_permit_message(user_id, f"`{arg}`")
+    await nay.set_permit_message(user_id, f"`{arg}`")
     await message.edit("**Pesan Anti PM Diset**")
     
 
