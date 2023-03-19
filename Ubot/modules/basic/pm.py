@@ -81,7 +81,8 @@ async def setpmmsg(client, message):
 @Client.on_message(filters.command(["a", "ok"], cmds) & filters.me & filters.private)
 async def allow(client, message):
     chat_id = message.chat.id
-    pmpermit, pm_message, limit, block_message = await get_pm_settings()
+    user_id = message.from_user.id
+    pmpermit, pm_message, limit, block_message = await get_pm_settings(user_id)
     await allow_user(chat_id)
     await message.edit(f"**Menerima pesan dari [you](tg://user?id={chat_id}).**")
     async for message in client.search_messages(
