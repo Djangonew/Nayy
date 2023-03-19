@@ -102,7 +102,7 @@ async def alive_function(message, answers):
     if remaining_days is None:
         remaining_days = "Belum Ditetapkan"
     msg = (
-        f"<b>New Project</b>\n"
+        f"<b>Naya Project</b>\n"
         f"   <b> Status : {status} </b>\n"
         f"   <b> Users :</b> <code>{user}</code>\n"
         f"   <b> Ping DC :</b> <code>{ping} ms</code>\n"
