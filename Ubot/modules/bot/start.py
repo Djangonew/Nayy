@@ -284,4 +284,20 @@ async def restart_bot(_, message: Message):
     else:
         args = [sys.executable, "-m", "Ubot"]
         execle(sys.executable, *args, environ)
+
+
+@Client.on_message(filters.command("restart", cmds) & filters.me)
+async def restart_bot(_, message: Message):
+    try:
+        await message.edit(" `Restarting bot...`")
+        LOGGER(__name__).info("BOT SERVER RESTARTED !!")
+    except BaseException as err:
+        LOGGER(__name__).info(f"{err}")
+        return
+    await message.edit("✅ **Bot has restarted**\n\n")
+    if HAPP is not None:
+        HAPP.restart()
+    else:
+        args = [sys.executable, "-m", "Ubot"]
+        execle(sys.executable, *args, environ)
         
