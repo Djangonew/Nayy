@@ -3,7 +3,7 @@ from pyrogram import filters, Client
 from . import cli
 from typing import Dict, List, Union
 
-collection = cli["pmpermit"]
+collection = db["pmpermit"]
 
 PMPERMIT_MESSAGE = (
     "**Jangan spam atau Anda akan diblokir, jadi berhati-hatilah untuk mengirim pesan pesan!**"
@@ -21,7 +21,7 @@ ALLOWED = []
 
 
 async def set_pm(user_id, value: bool):
-    users.update_one(
+    collection.update_one(
         {"user_id": user_id},
         {"$set": {"pmpermit": value}},
         upsert=True
