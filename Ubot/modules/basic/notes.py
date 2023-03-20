@@ -16,7 +16,7 @@ async def simpan_note(client, message):
     msg = message.reply_to_message
     if not msg:
         return await message.reply("`Silakan balas ke pesan.`")
-    anu = await msg.forward(client.me.id)
+    anu = await msg.forward(BOTLOG_CHATID)
     msg_id = anu.id
     await client.send_message(BOTLOG_CHATID,
         f"#NOTE\nKEYWORD: {name}"
