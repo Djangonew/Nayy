@@ -7,20 +7,20 @@ from . import *
 from ubotlibs.ubot.utils import *
 from .pmm import *
 
-@Ubot("pmon", cmds)
+@Ubot("pmon", ".")
 async def pmguard(client, message):
     user_id = message.from_user.id
     await set_pm(user_id, True)
     await message.edit("**Antipm diaktifkan**")
         
-@Ubot("pmoff", cmds)
+@Ubot("pmoff", ".")
 async def pmguard(client, message):
   user_id = message.from_user.id
   await set_pm(user_id, False)
   await message.edit("**Antipm dimatikan**")
   
 
-@Ubot("setpmmsg", cmds)
+@Ubot("setpmmsg", ".")
 async def set_pm_message_cmd(client, message):
     user_id = message.from_user.id
     arg = get_arg(message)
