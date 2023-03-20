@@ -4,7 +4,7 @@ from pyrogram.methods import messages
 from pyrogram import filters, Client
 from Ubot.core.db.permitdb import *
 from . import *
-from Ubotlibs.Ubot.utils import *
+from ubotlibs.ubot.utils import *
 from .pmm import *
 
 @Ubot("pmon", cmds)
