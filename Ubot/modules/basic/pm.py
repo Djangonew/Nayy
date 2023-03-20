@@ -19,12 +19,6 @@ async def pmguard(client, message):
   await set_pm(user_id, False)
   await message.edit("**Antipm dimatikan**")
   
-  async def set_pm(user_id, status):
-    users.update_one(
-        {"user_id": user_id},
-        {"$set": {"pmpermit": status}},
-        upsert=True
-
 
 @Ubot("setpmmsg", cmds)
 async def set_pm_message_cmd(client, message):
