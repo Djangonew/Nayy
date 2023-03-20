@@ -3,6 +3,7 @@ import asyncio
 from pyrogram.methods import messages
 from pyrogram import filters, Client
 from Ubot.core.db.permitdb import *
+from Ubot.core.db import permitdb as nay
 from . import *
 from ubotlibs.ubot.utils import *
 from .pmm import *
@@ -10,13 +11,13 @@ from .pmm import *
 @Ubot("pmon", ".")
 async def pmguard(client, message):
     user_id = message.from_user.id
-    await set_pm(user_id, True)
+    await nay.set_pm(user_id, True)
     await message.edit("**Antipm diaktifkan**")
         
 @Ubot("pmoff", ".")
 async def pmguard(client, message):
   user_id = message.from_user.id
-  await set_pm(user_id, False)
+  await nay.set_pm(user_id, False)
   await message.edit("**Antipm dimatikan**")
   
 
