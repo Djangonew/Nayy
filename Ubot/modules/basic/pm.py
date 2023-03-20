@@ -11,21 +11,23 @@ from . import *
 from .pmm import denied_users, get_arg
 
 
-
-@Client.on_message(filters.command(["antipm"], cmds) & filters.me)
-async def pmguard(client, message):
+@Ubot(["antipm"], cmds)
+async def antipm(client, message):
     arg = get_arg(message)
     user_id = message.from_user.id
     if not arg:
         await message.edit("**Gunakan `on` untuk menghidupkan atau `off` untuk mematikan**")
         return
     if arg == "off":
-        await nay.set_pm(user_id, False)
+        await set_pm(user_id, False)
         await message.edit("**Anti PM Off**")
-    if arg == "on":
-        await nay.set_pm(user_id, True)
+    elif arg == "on":
+        await set_pm(user_id, True)
         await message.edit("**Anti PM On**")
-        
+    else:
+        await message.edit("**Gunakan `on` untuk menghidupkan atau `off` untuk mematikan**")
+
+
 @Client.on_message(filters.command(["setpm"], cmds) & filters.me)
 async def setpmmsg(client, message):
     arg = get_arg(message)
@@ -39,6 +41,8 @@ async def setpmmsg(client, message):
         return
     await nay.set_permit_message(user_id, f"`{arg}`")
     await message.edit("**Pesan Anti PM Diset**")
+    
+
     
 
 add_command_help(
