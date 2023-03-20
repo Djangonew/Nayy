@@ -2,57 +2,54 @@
 import asyncio
 from pyrogram.methods import messages
 from pyrogram import filters, Client
-from pyrogram.types import Message
-from Ubot.core.db import permitdb as nay
 from Ubot.core.db.permitdb import *
-
-
 from . import *
-from .pmm import denied_users, get_arg
+from Ubotlibs.Ubot.utils import *
+from .pmm import *
 
-
-@Ubot(["antipm"], cmds)
-async def antipm(client, message):
-    arg = get_arg(message)
+@Ubot("pmon", cmds)
+async def pmguard(client, message):
     user_id = message.from_user.id
-    if not arg:
-        await message.edit("**Gunakan `on` untuk menghidupkan atau `off` untuk mematikan**")
-        return
-    if arg == "off":
-        await set_pm(user_id, False)
-        await message.edit("**Anti PM Off**")
-    elif arg == "on":
-        await set_pm(user_id, True)
-        await message.edit("**Anti PM On**")
-    else:
-        await message.edit("**Gunakan `on` untuk menghidupkan atau `off` untuk mematikan**")
+    await set_pm(user_id, True)
+    await message.edit("**Antipm diaktifkan**")
+        
+@Ubot("pmoff", cmds)
+async def pmguard(client, message):
+  user_id = message.from_user.id
+  await set_pm(user_id, False)
+  await message.edit("**Antipm dimatikan**")
+  
+  async def set_pm(user_id, status):
+    users.update_one(
+        {"user_id": user_id},
+        {"$set": {"pmpermit": status}},
+        upsert=True
 
 
-@Client.on_message(filters.command(["setpm"], cmds) & filters.me)
-async def setpmmsg(client, message):
-    arg = get_arg(message)
+@Ubot("setpmmsg", cmds)
+async def set_pm_message_cmd(client, message):
     user_id = message.from_user.id
+    arg = get_arg(message)
     if not arg:
-        await message.edit("**Mohon berikan pesan**")
+        await message.edit("`Gunakan format !setpmmsg pesan`")
         return
     if arg == "default":
-        await nay.set_permit_message(user_id, nay.PMPERMIT_MESSAGE)
-        await message.edit("**Pesan Anti PM Diset Default**.")
+        await set_pm_message(user_id, PMPERMIT_MESSAGE)
+        await message.edit("**Pesan Antipm diset ke default**.")
         return
-    await nay.set_permit_message(user_id, f"`{arg}`")
-    await message.edit("**Pesan Anti PM Diset**")
-    
+    await set_pm_message(user_id, f"`{arg}`")
+    await message.edit("**Pesan Antipm berhasil diubah.**")
 
-    
+
 
 add_command_help(
     "antipm",
     [
-        [f"antipm [on or off]", " -> mengaktifkan dan menonaktifkan anti-pm."],
+        [f"`pmon` or `pmoff`]", " -> mengaktifkan dan menonaktifkan anti-pm."],
         [f"setpm [message or default]", " -> Sets a custom anti-pm message."],
         [f"setblock [message or default]", "-> Sets custom block message."],
         [f"setlimit [value]", " -> This one sets a max. message limit for unwanted PMs and when they go beyond it, bamm!."],
-        [f"ok", " -> Allows a user to PM you."],
-        [f"no", " -> Denies a user to PM you."],
+        [f"ok, y atau a", " -> Allows a user to PM you."],
+        [f"no, g atau n", " -> Denies a user to PM you."],
     ],
 )
