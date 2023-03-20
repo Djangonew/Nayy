@@ -1,6 +1,6 @@
 from pyrogram.filters import chat
 from pyrogram import filters, Client
-from . import cli
+from . import db
 from typing import Dict, List, Union
 
 collection = db["pmpermit"]
