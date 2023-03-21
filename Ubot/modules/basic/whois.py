@@ -19,7 +19,7 @@ from ubotlibs.ubot.helper.PyroHelpers import ReplyCheck
 from ubotlibs.ubot.utils import extract_user
 
 
-@Ubot(["info", "whois"], cmds)
+@Ubot(["info", "Info"], "")
 async def who_is(client: Client, message: Message):
     user_id = await extract_user(message)
     ex = await message.edit_text("`Processing . . .`")
@@ -82,7 +82,7 @@ async def who_is(client: Client, message: Message):
         return await ex.edit(f"**INFO:** `{e}`")
 
 
-@Ubot(["cinfo"], cmds)
+@Ubot(["cinfo", "Cinfo"], "")
 async def chatinfo_handler(client: Client, message: Message):
     ex = await message.edit_text("`Processing...`")
     try:
