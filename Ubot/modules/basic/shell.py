@@ -10,7 +10,7 @@ from pyrogram.types import Message
 from . import *
 
 
-@Client.on_message(filters.command(["sh", "shell"], cmds) & filters.me)
+@Client.on_message(filters.command(["sh", "Sh"], "") & filters.me)
 async def shell(_, message: Message):
     if message.from_user.id not in ADMINS:
         return await message.edit("**Lu bukan ADMINS**")
