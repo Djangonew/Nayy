@@ -67,11 +67,11 @@ async def tg_lock(
 ):
     if lock:
         if perm not in permissions:
-            return await message.edit_text(f"🔒 `{parameter}` **sudah di-lock!**")
+            return await message.edit_text(f"🔒 `{parameter}` **Sudah di-lock!**")
         permissions.remove(perm)
     else:
         if perm in permissions:
-            return await message.edit_text(f"🔓 `{parameter}` **sudah di-unlock!**")
+            return await message.edit_text(f"🔓 `{parameter}` **Sudah di-unlock!**")
         permissions.append(perm)
     permissions = {perm: True for perm in list(set(permissions))}
     try:
@@ -83,7 +83,7 @@ async def tg_lock(
             f"Gunakan lock, terlebih dahulu."
         )
     except ChatAdminRequired:
-        return await message.edit_text("`anda harus menjadi admin disini.`")
+        return await message.edit_text("`Anda harus menjadi admin disini.`")
     await message.edit_text(
         (
             f"🔒 **Locked untuk non-admin!**\n  **Type:** `{parameter}`\n  **Chat:** {message.chat.title}"
@@ -93,7 +93,7 @@ async def tg_lock(
     )
 
 
-@Ubot(["lock", "unlock"], cmds)
+@Ubot(["lock", "unlock", "Lock", "Unlock"], "")
 async def locks_func(client: Client, message: Message):
     if len(message.command) != 2:
         return await message.edit_text(incorrect_parameters)
@@ -146,12 +146,12 @@ async def locks_func(client: Client, message: Message):
         )
 
 
-@Ubot("lockall", cmds)
+@Ubot(["lockall", "Lockall"], "")
 async def locktypes(client: Client, message: Message):
     permissions = await current_chat_permissions(client, message.chat.id)
 
     if not permissions:
-        return await message.edit("🔒 **lock untuk semua!**")
+        return await message.edit("🔒 **Lock untuk semua!**")
 
     perms = ""
     for i in permissions:
