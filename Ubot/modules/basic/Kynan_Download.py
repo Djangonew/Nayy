@@ -19,7 +19,7 @@ def run_sync(func, *args, **kwargs):
     return get_event_loop().run_in_executor(None, partial(func, *args, **kwargs))
 
 
-@Ubot(["vid", "video"], cmds)
+@Ubot(["vid", "Vid"], "")
 async def yt_video(client, message):
     if len(message.command) < 2:
         return await message.reply_text(
@@ -79,7 +79,7 @@ async def yt_video(client, message):
             os.remove(files)
 
 
-@Ubot("song", cmds)
+@Ubot(["song", "Song"], "")
 async def yt_audio(client, message):
     if len(message.command) < 2:
         return await message.reply_text(
