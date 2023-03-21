@@ -4,7 +4,15 @@
     "repository": "https://github.com/ayrizz/Nay",
     "stack": "container",
     "env": {
-        "STRING_SESSION1": {
+        "API_ID": {
+            "description": "ISI JORRRR",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "ISI JORRR",
+            "required": true
+        },
+        "SESSION1": {
             "description": "fill with the pyrogram V2 session",
             "required": true
         },
@@ -12,6 +20,11 @@
             "description": "Fill there an mongo database from mongodb.com",
             "required": true,
             "value": ""
+        },
+        "BOTLOG_CHATID": {
+            "description": "ISI JORRRR -100",
+            "required": true,
+            "value": "-100"
         },
         "OPENAI_API": {
             "description": "Jika ingin menggunakan openai, isi openai-api-key",
