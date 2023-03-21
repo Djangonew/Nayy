@@ -117,6 +117,7 @@ async def cpingme(client: Client, message: Message):
 async def pingme(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
+    ping_ = await client.send_message(client.me.id, "😈")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await message.edit(
@@ -124,4 +125,5 @@ async def pingme(client: Client, message: Message):
         f"**├ Pinger** - `%sms`\n"
         f"**╰ Uptime -** `{uptime}` \n" % (duration)
     )
+    await ping_.delete()
   
