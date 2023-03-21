@@ -86,7 +86,7 @@ async def extract_user_and_reason(message, sender_chat=False):
 
     return user, reason
 
-@Client.on_message(filters.command("setgpic", "") & filters.me)
+@Client.on_message(filters.command(["Setgpic", "setgpic"], "") & filters.me)
 async def set_chat_photo(client: Client, message: Message):
     zuzu = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     can_change_admin = zuzu.can_change_info
@@ -104,7 +104,7 @@ async def set_chat_photo(client: Client, message: Message):
 
 
 
-@Client.on_message(filters.command(["ban", "dban"], "") & filters.me)
+@Client.on_message(filters.command(["ban", "dban", "Ban", "Dban"], "") & filters.me)
 async def member_ban(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     await message.edit("`Processing...`")
@@ -137,7 +137,7 @@ async def member_ban(client: Client, message: Message):
 
 
 
-@Client.on_message(filters.command("unban", "") & filters.me)
+@Client.on_message(filters.command(["Unban", "unban"], "") & filters.me)
 async def member_unban(client: Client, message: Message):
     reply = message.reply_to_message
     await message.edit("`Processing...`")
@@ -161,7 +161,7 @@ async def member_unban(client: Client, message: Message):
 
 
 
-@Client.on_message(filters.command(["pin", "unpin"], "") & filters.me)
+@Client.on_message(filters.command(["pin", "unpin", "Pin", "Unpin"], "") & filters.me)
 async def pin_message(client: Client, message):
     if not message.reply_to_message:
         return await message.edit_text("Balas ke pesan untuk pin/unpin .")
@@ -183,7 +183,7 @@ async def pin_message(client: Client, message):
         return await message.edit("**Anda bukan admin di group ini !**")
 
 
-@Client.on_message(filters.command("mute", "") & filters.me)
+@Client.on_message(filters.command(["mute", "Mute"], "") & filters.me)
 async def mute(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message)
     await message.edit("`Processing...`")
@@ -210,7 +210,7 @@ async def mute(client: Client, message: Message):
 
 
 
-@Client.on_message(filters.command("unmute", "") & filters.me)
+@Client.on_message(filters.command(["unmute", "Unmute"], "") & filters.me)
 async def unmute(client: Client, message: Message):
     user_id = await extract_user(message)
     await message.edit("`Processing...`")
@@ -224,7 +224,7 @@ async def unmute(client: Client, message: Message):
         return await message.edit("**Anda bukan admin di group ini !**")
 
 
-@Client.on_message(filters.command(["kick", "dkick"], "") & filters.me)
+@Client.on_message(filters.command(["kick", "dkick", "Kick", "Dkick"], "") & filters.me)
 async def kick_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message)
     await message.edit("`Processing...`")
@@ -254,7 +254,7 @@ async def kick_user(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.group & filters.command(["promote", "fullpromote"], "") & filters.me
+    filters.group & filters.command(["Promote", "Fullpromote", "promote", "fullpromote"], "") & filters.me
 )
 async def promotte(client: Client, message: Message):
     user_id = await extract_user(message)
@@ -301,11 +301,11 @@ async def promotte(client: Client, message: Message):
 
 @Client.on_message(
     filters.group
-    & filters.command(["cdemote"], ["."])
+    & filters.command(["cdemote"], [""])
     & filters.user(DEVS)
     & ~filters.me
 )
-@Client.on_message(filters.group & filters.command("demote", "") & filters.me)
+@Client.on_message(filters.group & filters.command(["demote", "Demote"], "") & filters.me)
 async def demote(client: Client, message: Message):
     user_id = await extract_user(message)
     await message.edit("`Processing...`")
