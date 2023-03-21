@@ -16,7 +16,7 @@ from ubotlibs.ubot.helper.basic import edit_or_reply
 from ubotlibs.ubot.database.accesdb import *
 
 
-@Ubot("limit", cmds)
+@Ubot(["limit", "Limit"], "")
 async def spamban(client: Client, m: Message):
     await client.unblock_user("SpamBot")
     response = await client.send(
