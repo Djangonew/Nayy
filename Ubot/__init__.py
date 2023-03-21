@@ -13,7 +13,7 @@ from pyrogram import Client, filters
 from pytgcalls import GroupCallFactory
 from Ubot.get_config import get_config
 from config import *
-cmds = ["!", "?", "*", "-", "^", "."]
+cmds = None
 CMD_HELP = {}
 clients = []
 ids = []
