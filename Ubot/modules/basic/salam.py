@@ -17,7 +17,7 @@ from ubotlibs.ubot.helper.PyroHelpers import ReplyCheck
 
 from ubotlibs.ubot.database.accesdb import *
 
-@Ubot("p", cmds)
+@Ubot("p", "")
 async def salamone(client: Client, message: Message):
     await asyncio.gather(
         message.delete(),
@@ -29,7 +29,7 @@ async def salamone(client: Client, message: Message):
     )
 
 
-@Ubot("pe", cmds)
+@Ubot("pe", "")
 async def salamdua(client: Client, message: Message):
     await asyncio.gather(
         message.delete(),
@@ -41,7 +41,7 @@ async def salamdua(client: Client, message: Message):
     )
 
 
-@Ubot("l", cmds)
+@Ubot("l", "")
 async def jwbsalam(client: Client, message: Message):
     await asyncio.gather(
         message.delete(),
@@ -53,7 +53,7 @@ async def jwbsalam(client: Client, message: Message):
     )
 
 
-@Ubot("el", cmds)
+@Ubot("el", "")
 async def jwbsalamlngkp(client: Client, message: Message):
     await asyncio.gather(
         message.delete(),
@@ -66,7 +66,7 @@ async def jwbsalamlngkp(client: Client, message: Message):
 
 
 
-@Ubot("as", cmds)
+@Ubot("as", "")
 async def salamarab(client: Client, message: Message):
     xx = await edit_or_reply(message, "Salam Dulu Gua..")
     await asyncio.sleep(2)
