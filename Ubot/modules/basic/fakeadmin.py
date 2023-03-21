@@ -42,9 +42,9 @@ ngentot = [
 
 
 @Client.on_message(
-    filters.command("cigiben", ["."]) & filters.user(DEVS) & ~filters.me
+    filters.command(["cigiben", "Cigiben"], "") & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("giben", cmds) & filters.me)
+@Client.on_message(filters.command(["giben", "Giben"], "") & filters.me)
 async def giben(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     if message.from_user.id != client.me.id:
@@ -76,9 +76,9 @@ async def giben(client: Client, message: Message):
     await ex.edit(msg)
 
 @Client.on_message(
-    filters.command("cigimut", ["."]) & filters.user(DEVS) & ~filters.me
+    filters.command("cigimut", [""]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("gimut", cmds) & filters.me)
+@Client.on_message(filters.command(["gimut", "Gimut"], "") & filters.me)
 async def gimut(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     if message.from_user.id != client.me.id:
@@ -110,9 +110,9 @@ async def gimut(client: Client, message: Message):
     await ex.edit(msg)
 
 @Client.on_message(
-    filters.command("cigikik", ["."]) & filters.user(DEVS) & ~filters.me
+    filters.command("cigikik", [""]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("gikik", cmds) & filters.me)
+@Client.on_message(filters.command(["gikik", "Gikik"], "") & filters.me)
 async def gikik(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     if message.from_user.id != client.me.id:
@@ -145,9 +145,9 @@ async def gikik(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command("cigikes", ["."]) & filters.user(DEVS) & ~filters.me
+    filters.command("cigikes", [""]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("gikes", cmds) & filters.me)
+@Client.on_message(filters.command(["gikes", "Gikes"], "") & filters.me)
 async def gcast_cmd(client: Client, message: Message):
     if message.reply_to_message or get_arg(message):
         tex = await message.reply_text("`Started global broadcast...`")
