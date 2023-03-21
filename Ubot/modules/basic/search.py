@@ -13,7 +13,7 @@ from pyrogram.types import InputMediaPhoto
 from . import * 
 
 
-@Ubot(["bing", "pic"], cmds)
+@Ubot(["Pic", "pic"], "")
 async def pic_bing_cmd(client, message):
     TM = await message.reply("<b>Memproses...</b>")
     if len(message.command) < 2:
@@ -42,7 +42,7 @@ async def pic_bing_cmd(client, message):
     await TM.delete()
 
 
-@Ubot("gif", cmds)
+@Ubot(["Gif", "gif"], "")
 async def gif_cmd(client, message):
     if len(message.command) < 2:
         return await message.reply(f"<code>{message.text}</code> [query]")
