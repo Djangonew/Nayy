@@ -24,7 +24,7 @@ def get_arg(message: Message):
         return ""
     return " ".join(split[1:])
 
-@Ubot("all", cmds)
+@Ubot(["all", "All"], "")
 async def mentionall(client: Client, message: Message):
     chat_id = message.chat.id
     direp = message.reply_to_message
@@ -55,7 +55,7 @@ async def mentionall(client: Client, message: Message):
         pass
 
 
-@Ubot("batal", cmds)
+@Ubot(["batal", "Batal"], "")
 async def cancel_spam(client: Client, message: Message):
     if not message.chat.id in spam_chats:
         return await message.edit("**Oke dibatalkan.**")
