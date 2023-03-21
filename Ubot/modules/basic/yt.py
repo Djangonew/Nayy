@@ -84,7 +84,7 @@ async def downlodvideo(m, message, vid_id):
            raise e
 
 
-@Ubot("song2", cmds)
+@Ubot("song2", "")
 async def songdown(client: Client, message: Message):
    try: 
     if len(message.command) < 2:
@@ -100,7 +100,7 @@ Silakan periksa, Anda menggunakan format yang benar atau ejaan Anda benar dan co
        """)
 
 
-@Ubot(["vid2", "video2"], cmds)
+@Ubot(["vid2", "video2"], "")
 async def videodown(client: Client, message: Message):
    try: 
     if len(message.command) < 2:
@@ -116,7 +116,7 @@ Silakan periksa, Anda menggunakan format yang benar atau ejaan Anda benar dan co
        """)
             
             
-@Ubot(["sosmed"], cmds)
+@Ubot(["sosmed", "Sosmed"], "")
 async def sosmed(client: Client, message: Message):
     prik = await message.edit("`Processing . . .`")
     link = get_arg(message)
