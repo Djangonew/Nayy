@@ -76,10 +76,3 @@ async def log_tagged_messages(app: Client, message):
     )
     
     
-add_command_help(
-    "logger",
-    [
-        [f"log", "Untuk menghidupkan log tag."],
-        [f"nolog", "Untuk mematikan log tag."],
-    ],
-)
