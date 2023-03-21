@@ -27,7 +27,7 @@ async def simpan_note(client, message):
     await message.reply(f"**Berhasil menyimpan catatan dengan nama** `{name}`")
 
 
-@Ubot("Get", "get"], "")
+@Ubot(["Get", "get"], "")
 async def panggil_notes(client, message):
     name = get_arg(message)
     user_id = message.from_user.id
