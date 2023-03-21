@@ -12,7 +12,7 @@ from . import *
 
 
 
-@Client.on_message(filters.command(["toanime"], cmds) & filters.me)
+@Client.on_message(filters.command(["toanime", "Toanime"], "") & filters.me)
 async def convert_image(client, message):
     if not message.reply_to_message:
         return await message.edit("**Mohon Balas Ke Foto**")
@@ -39,7 +39,7 @@ async def convert_image(client, message):
 
 
 
-@Client.on_message(filters.command(["togif"], cmds) & filters.me)
+@Client.on_message(filters.command(["togif", "Togif"], "") & filters.me)
 async def togif(client: Client, message: Message):
     TM = await message.reply("<b>Memproses...</b>")
     if not message.reply_to_message:
