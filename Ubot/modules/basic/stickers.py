@@ -40,7 +40,7 @@ babi= [
     "Minta dong banh ...",
 ]
 
-@Client.on_message(filters.command(["pack"], cmds) & filters.me)
+@Client.on_message(filters.command(["pack", "Pack"], "") & filters.me)
 def create_pack(client, message):
     biji = message.text.split(' ')
     if len(biji) < 2:
@@ -74,7 +74,7 @@ def create_pack(client, message):
 
 
 
-@Ubot("kang", cmds)
+@Ubot(["kang", "Kang"], "")
 async def kang(client: Client, message: Message):
     user = client.me
     replied = message.reply_to_message
@@ -295,7 +295,7 @@ async def get_response(message, client):
     return [x async for x in client.get_chat_history("Stickers", limit=1)][0].text
 
 
-@Ubot(["packinfo", "stickerinfo"], cmds)
+@Ubot(["packinfo", "Packinfo"], "")
 async def packinfo(client: Client, message: Message):
     rep = await message.edit_text("`Processing...`")
     if not message.reply_to_message:
@@ -331,7 +331,7 @@ async def packinfo(client: Client, message: Message):
     await rep.edit(output)
 
 
-@Ubot("stickers", cmds)
+@Ubot(["Stickers", "stickers"], "")
 async def cb_sticker(client: Client, message: Message):
     query = get_text(message)
     if not query:
@@ -351,7 +351,7 @@ async def cb_sticker(client: Client, message: Message):
     await xx.edit(reply)
 
 
-@Ubot("tiny", cmds)
+@Ubot(["tiny", "Tiny"], "")
 async def tinying(client: Client, message: Message):
     reply = message.reply_to_message
     if not (reply and (reply.media)):
@@ -428,7 +428,7 @@ async def tinying(client: Client, message: Message):
     os.remove(ik)
 
 
-@Ubot("mmf", cmds)
+@Ubot(["Mmf", "mmf"], "")
 async def memify(client: Client, message: Message):
     if not message.reply_to_message_id:
         await message.edit_text("**Mohon balas ke stikers!**")
@@ -454,7 +454,7 @@ async def memify(client: Client, message: Message):
     os.remove(meme)
 
 
-@Ubot(["toimg"], cmds)
+@Ubot(["toimg", "Toimg"], "")
 async def stick2png(client: Client, message: Message):
     try:
         await message.edit("`Downloading . . .`")
@@ -487,12 +487,10 @@ add_command_help(
         [f"kang `Balas` Gambar",
             f"Balas kang menambahkan gambar/stiker ke pack stiker anda."],
         [f"kang [emoji] `atau` double [emoji]",
-            "menambahkan stiker dengan spesifik emoji.`"],
+            "Menambahkan stiker dengan spesifik emoji.`"],
         [f"packinfo `or` stickerinfo",
-            "mengambil info stiker atau pack striker."],
-        [ f"mtoi atau getsticker balas ke sticker",
-            "balas ke stiker untuk mengubahnya jadi image/gambar." ],
-        [f"stickers <nama sticker>", "untuk mencari pack stikernya."],
+            "Mengambil info stiker atau pack striker."],
+        [f"stickers <nama sticker>", "Untuk mencari pack stikernya."],
     ],
 )
 
@@ -504,7 +502,7 @@ add_command_help(
             "Balas ke stiker untuk membuat memify text stiker."],
         [f"tiny [reply ke photo/sticker]",
             "To Change the Sticker to be Small."],
-        [f"txtst <warna>/<r/g/b/w> <pesan> atau <balas ke pesan>",
+        [f"text <warna>/<r/g/b/w> <pesan> atau <balas ke pesan>",
             "Merubah text jadi sticker."],
         [f"twitt <balas ke pesan>",
             "Mebuat stiker status twitter."],
