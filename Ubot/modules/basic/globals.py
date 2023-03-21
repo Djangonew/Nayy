@@ -20,13 +20,13 @@ from ubotlibs.ubot.database.accesdb import *
 @Client.on_message(filters.command(["gban", "Gban", "ungban", "Ungban"], "") & filters.me)
 async def _(client, message):
     user_id = await extract_user(message)
-    await message.edit("<b>Memproses. . .</b>")
+    nay = await message.reply("<b>Memproses. . .</b>")
     if not user_id:
-        return await message.edit("<b>User tidak ditemukan</b>")
+        return await nay.edit("<b>User tidak ditemukan</b>")
     try:
         user = await client.get_users(user_id)
     except Exception as error:
-        return await message.edit(error)
+        return await nay.edit(error)
     done = 0
     failed = 0
     text = [
@@ -43,7 +43,7 @@ async def _(client, message):
             ]:
                 chat_id = dialog.chat.id
                 if user.id == DEVS:
-                    return await message.edit(
+                    return await nay.edit(
                         "Anda tidak bisa gban dia, karena dia pembuat saya"
                     )
                 elif not user.id == DEVS:
@@ -54,7 +54,7 @@ async def _(client, message):
                     except:
                         failed += 1
                         await asyncio.sleep(0.1)
-        await message.delete()
+        await nay.delete()
         return await message.reply(
             text[0].format(
                 done, failed, user.id, user.first_name, (user.last_name or "")
@@ -76,7 +76,7 @@ async def _(client, message):
                 except:
                     failed += 1
                     await asyncio.sleep(0.1)
-        await message.delete()
+        await nay.delete()
         return await message.reply(
             text[1].format(
                 done, failed, user.id, user.first_name, (user.last_name or "")
@@ -92,7 +92,7 @@ async def _(client, message):
             ]:
                 chat_id = dialog.chat.id
                 if user.id == DEVS:
-                    return await message.edit(
+                    return await nay.edit(
                         "Anda tidak bisa gban dia, karena dia pembuat saya"
                     )
                 elif not user.id == DEVS:
@@ -103,7 +103,7 @@ async def _(client, message):
                     except:
                         failed += 1
                         await asyncio.sleep(0.1)
-        await message.delete()
+        await nay.delete()
         return await message.reply(
             text[0].format(
                 done, failed, user.id, user.first_name, (user.last_name or "")
@@ -125,7 +125,7 @@ async def _(client, message):
                 except:
                     failed += 1
                     await asyncio.sleep(0.1)
-        await message.delete()
+        await nay.delete()
         return await message.reply(
             text[1].format(
                 done, failed, user.id, user.first_name, (user.last_name or "")
