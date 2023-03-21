@@ -6,7 +6,7 @@ from ubotlibs.ubot.database.accesdb import *
 from pyrogram.enums import MessagesFilter
 
 
-@Ubot("take", cmds)
+@Ubot(["take", "Take"], "")
 async def _(client, message):
     results = {
         "photo": MessagesFilter.PHOTO,
