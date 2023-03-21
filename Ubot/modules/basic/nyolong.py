@@ -11,7 +11,7 @@ from ubotlibs.ubot.utils import get_arg
 
 
 
-@Client.on_message(filters.command("nyolong", cmds) & filters.me)
+@Client.on_message(filters.command(["Curi", "curi"], "") & filters.me)
 async def copy_msg(client: Client, message: Message):
     Tm = await message.reply("`Processing...`")
     link = get_arg(message)
@@ -37,6 +37,6 @@ async def copy_msg(client: Client, message: Message):
 add_command_help(
     "nyolong",
     [
-        [f"nyolong", "nyolong konten orang"],
+        [f"curi", "nyolong konten orang"],
     ],
 )
