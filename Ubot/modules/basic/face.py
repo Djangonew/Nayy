@@ -28,7 +28,7 @@ from . import *
 DEEP_AI = "d7394561-0528-4714-a1ee-edd7020b48e1"
 
 
-@Ubot("face", cmds)
+@Ubot(["Face", "face"], "")
 async def face_detect(c: Client, m: Message):
     pro = await m.reply_text("`Processing...`")
     await asyncio.sleep(5)
@@ -55,7 +55,7 @@ async def face_detect(c: Client, m: Message):
     except BaseException:
         pass
 
-@Ubot("pcil", cmds)
+@Ubot(["pcil", "Pcil"], "")
 async def generate_sketch(c: Client, m: Message):
     if m.reply_to_message.photo:
         file_id = m.reply_to_message.photo
@@ -75,7 +75,7 @@ async def generate_sketch(c: Client, m: Message):
 
 
 
-@Ubot(["toonify", "cartoon"], cmds)
+@Ubot(["toonify", "Toonify"], "")
 async def toonify_handler(c: Client, m: Message):
     pro = await m.reply_text("`Processing...`")
     await asyncio.sleep(5)
