@@ -136,7 +136,7 @@ async def help_function(answers):
 
 
 @app.on_inline_query()
-# @inline_wrapper
+@inline_wrapper
 async def inline_query_handler(client: Client, query):
     try:
         text = query.query.strip().lower()
@@ -144,13 +144,14 @@ async def inline_query_handler(client: Client, query):
         answers = []
         if text.strip() == "":
             return
-        elif string_given.startswith("helper"):
-            answers = await help_function(answers)
-            await client.answer_inline_query(query.id, results=answers, cache_time=5)
         elif text.split()[0] == "alive":
             m = [obj for obj in get_objects() if id(obj) == int(query.query.split(None, 1)[1])][0]
-            answers2 = await alive_function(m, answers)
-            await client.answer_inline_query(query.id, results=answers2, cache_time=300)
+            answerss = await alive_function(m, answers)
+            await client.answer_inline_query(query.id, results=answerss, cache_time=10)
+        elif string_given.startswith("helper"):
+            answers = await help_function(answers)
+            await client.answer_inline_query(query.id, results=answers, cache_time=0)
+            await client.answer_inline_query(query.id, results=answers, cache_time=0)
     except Exception as e:
         e = traceback.format_exc()
         print(e, "InLine")
