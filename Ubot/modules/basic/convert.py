@@ -14,7 +14,7 @@ from ubotlibs.ubot.database.accesdb import *
 mod_name = os.path.basename(__file__)[:-3]
 
 
-@Ubot("toaudio", cmds)
+@Ubot(["Toaudio", "toaudio"], "")
 async def extract_all_aud(client: Client, message: Message):
     replied_msg = message.reply_to_message
     geez = await message.reply("`Downloading Video . . .`")
