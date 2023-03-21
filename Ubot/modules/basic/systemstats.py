@@ -52,7 +52,7 @@ def get_size(bytes, suffix="B"):
             return f"{bytes:.2f}{unit}{suffix}"
         bytes /= factor
 
-@Ubot("spc", cmds)
+@Ubot("spc", "")
 async def psu(client: Client, message: Message):
     uname = platform.uname()
     softw = "**Informasi Sistem**\n"
@@ -99,7 +99,7 @@ async def psu(client: Client, message: Message):
     help_string += "**Informasi Mesin**\n"
     help_string += f"`Python {sys.version}`\n"
     help_string += f"`Pyrogram {__version__}`\n"
-    help_string += f"`**Powered by {client.me.mention}**`\n"
+    help_string += f"**Powered by {client.me.mention}**\n"
     await message.reply(help_string)
 
 
