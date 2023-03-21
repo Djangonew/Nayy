@@ -15,9 +15,9 @@ from ubotlibs.ubot.database.accesdb import *
 
 
 @Client.on_message(
-    filters.command(["cgban", "cungban"], ".") & filters.user(DEVS) & ~filters.me
+    filters.command(["cgban", "cungban", "Cgban", "Cungban"], "") & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command(["gban", "ungban"], cmds) & filters.me)
+@Client.on_message(filters.command(["gban", "Gban", "ungban", "Ungban"], "") & filters.me)
 async def _(client, message):
     user_id = await extract_user(message)
     await message.edit("<b>Memproses. . .</b>")
@@ -33,7 +33,7 @@ async def _(client, message):
         "<b>💬 Global Banned</b>\n\n<b>✅ Berhasil: {} Chat</b>\n<b>❌ Gagal: {} Chat</b>\n<b>👤 User: <a href='tg://user?id={}'>{} {}</a></b>",
         "<b>💬 Global Unbanned</b>\n\n<b>✅ Berhasil: {} Chat</b>\n<b>❌ Gagal: {} Chat</b>\n<b>👤 User: <a href='tg://user?id={}'>{} {}</a></b>",
     ]
-    if message.command[0] == "gban":
+    if message.command[0] == "gban" or "Gban":
         async for dialog in client.get_dialogs():
             chat_type = dialog.chat.type
             if chat_type in [
@@ -60,7 +60,7 @@ async def _(client, message):
                 done, failed, user.id, user.first_name, (user.last_name or "")
             )
         )
-    elif message.command[0] == "ungban":
+    elif message.command[0] == "ungban" or "Ungban":
         async for dialog in client.get_dialogs():
             chat_type = dialog.chat.type
             if chat_type in [
@@ -82,7 +82,7 @@ async def _(client, message):
                 done, failed, user.id, user.first_name, (user.last_name or "")
             )
         )
-    elif message.command[0] == "cgban":
+    elif message.command[0] == "cgban" or "Cgban":
         async for dialog in client.get_dialogs():
             chat_type = dialog.chat.type
             if chat_type in [
@@ -109,7 +109,7 @@ async def _(client, message):
                 done, failed, user.id, user.first_name, (user.last_name or "")
             )
         )
-    elif message.command[0] == "cungban":
+    elif message.command[0] == "cungban" or "Cungban":
         async for dialog in client.get_dialogs():
             chat_type = dialog.chat.type
             if chat_type in [
