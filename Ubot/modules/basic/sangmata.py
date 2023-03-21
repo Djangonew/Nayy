@@ -17,7 +17,7 @@ from . import *
 from ubotlibs.ubot.utils import extract_user
 from ubotlibs.ubot.database.accesdb import *
 
-@Ubot(["sg", "Sg]", "")
+@Ubot(["sg", "Sg"], "")
 async def sg(client: Client, message: Message):
     args = await extract_user(message)
     lol = await message.edit_text("`Processing...`")
