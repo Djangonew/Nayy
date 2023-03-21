@@ -21,7 +21,7 @@
         "MONGO_URL": {
             "description": "Fill there an mongo database from mongodb.com",
             "required": true,
-            "value": ""
+            "value": "isi"
         },
         "OPENAI_API": {
             "description": "Jika ingin menggunakan openai, isi openai-api-key",
@@ -36,22 +36,22 @@
         "BOT_TOKEN": {
             "description": "fill with your bot token get from @BotFather on telegram",
             "required": true,
-            "value": ""
+            "value": "isi"
         },
         "BOTLOG_CHATID": {
             "description": "fill with your Publik LOG Group",
             "required": false,
-            "value": ""
+            "value": "isi"
         },
         "HEROKU_API_KEY": {
             "description": "Heroku Api Key",
             "required": true,
-            "value": "."
+            "value": "isi"
         },
         "HEROKU_APP_NAME": {
             "description": "Heroku APP name",
             "required": true,
-            "value": "."
+            "value": "isi"
         }
     },
     "buildpacks": [
