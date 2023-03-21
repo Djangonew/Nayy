@@ -7,7 +7,7 @@ from ubotlibs.ubot.helper import edit_or_reply, ReplyCheck
 from ubotlibs.ubot.utils import extract_user
 from . import *
 
-@Ubot(["jamet"], cmds)
+@Ubot(["jamet"], "")
 async def ngejamet(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -37,7 +37,7 @@ async def ngejamet(client: Client, message: Message):
     await xx.edit("**LEMBEK NGENTOT🔥**")
 
 
-@Ubot(["ywc"], cmds)
+@Ubot(["ywc"], "")
 async def ywc(client: Client, message: Message):
     await asyncio.gather(
         message.delete(),
@@ -49,7 +49,7 @@ async def ywc(client: Client, message: Message):
     )
 
 
-@Ubot(["pp"], cmds)
+@Ubot(["pp"], "")
 async def toxicpp(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -66,7 +66,7 @@ async def toxicpp(client: Client, message: Message):
     )
 
 
-@Ubot(["dp"], cmds)
+@Ubot(["dp"], "")
 async def toxicdp(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -83,7 +83,7 @@ async def toxicdp(client: Client, message: Message):
     )
 
 
-@Ubot(["so"], cmds)
+@Ubot(["so"], "")
 async def toxicso(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -100,7 +100,7 @@ async def toxicso(client: Client, message: Message):
     )
 
 
-@Ubot(["nb"], cmds)
+@Ubot(["nb"], "")
 async def toxicnb(client: Client, message: Message):
     user_id = await extract_user(message)
     if message.chat.id in BL_GCAST:
@@ -121,7 +121,7 @@ async def toxicnb(client: Client, message: Message):
     )
 
 
-@Ubot(["met"], cmds)
+@Ubot(["met"], "")
 async def toxicmet(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -138,7 +138,7 @@ async def toxicmet(client: Client, message: Message):
     )
 
 
-@Ubot(["war"], cmds)
+@Ubot(["war"], "")
 async def toxicwer(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -155,7 +155,7 @@ async def toxicwer(client: Client, message: Message):
     )
 
 
-@Ubot(["wartai"], cmds)
+@Ubot(["wartai"], "")
 async def toxicwartai(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -172,7 +172,7 @@ async def toxicwartai(client: Client, message: Message):
     )
 
 
-@Ubot(["kismin"], cmds)
+@Ubot(["kismin"], "")
 async def toxickismin(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -189,7 +189,7 @@ async def toxickismin(client: Client, message: Message):
     )
 
 
-@Ubot(["ded"], cmds)
+@Ubot(["ded"], "")
 async def toxicded(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -206,7 +206,7 @@ async def toxicded(client: Client, message: Message):
     )
 
 
-@Ubot(["sokab"], cmds)
+@Ubot(["sokab"], "")
 async def toxicsokab(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -223,7 +223,7 @@ async def toxicsokab(client: Client, message: Message):
     )
 
 
-@Ubot(["gembel"], cmds)
+@Ubot(["gembel"], "")
 async def toxicgembel(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -240,7 +240,7 @@ async def toxicgembel(client: Client, message: Message):
     )
 
 
-@Ubot(["cuih"], cmds)
+@Ubot(["cuih"], "")
 async def toxiccuih(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -257,7 +257,7 @@ async def toxiccuih(client: Client, message: Message):
     )
 
 
-@Ubot(["dih"], cmds)
+@Ubot(["dih"], "")
 async def toxicdih(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -274,7 +274,7 @@ async def toxicdih(client: Client, message: Message):
     )
 
 
-@Ubot(["gc"], cmds)
+@Ubot(["gc"], "")
 async def toxicgcs(client: Client, message: Message):
     user_id = await extract_user(message)
     if message.chat.id in BL_GCAST:
@@ -295,7 +295,7 @@ async def toxicgcs(client: Client, message: Message):
     )
 
 
-@Ubot(["skb"], cmds)
+@Ubot(["skb"], "")
 async def toxicskb(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -312,7 +312,7 @@ async def toxicskb(client: Client, message: Message):
     )
 
 
-@Ubot(["virtual"], cmds)
+@Ubot(["virtual"], "")
 async def toxicvirtual(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
