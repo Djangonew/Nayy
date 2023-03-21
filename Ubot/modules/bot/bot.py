@@ -86,25 +86,6 @@ async def start_admin(_, query: CallbackQuery):
         ),
     )
     
-@app.on_callback_query(filters.regex("admin"))
-async def start_admin(_, query: CallbackQuery):
-    ADMIN1 = ADMIN1_ID[0]
-    ADMIN2 = ADMIN2_ID[0]
-    return await query.edit_message_text(
-        f"""<b> ☺️** Silakan hubungi admin dibawah ini jika menemukan kendala.**</b>""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(text="👮‍♂ Admin 1", user_id=ADMIN1),
-                    InlineKeyboardButton(text="👮‍♂ Admin 2", user_id=ADMIN2),
-                ],
-                  [
-                     InlineKeyboardButton(text="Tutup", callback_data="close"),
-                  ],
-             ]
-        ),
-    )
-
 
 @app.on_callback_query(filters.regex("cl_ad"))
 async def close(_, query: CallbackQuery):
