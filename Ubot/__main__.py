@@ -34,7 +34,8 @@ MSG_ON = """
 ◉ **Phython** : `{}`
 ◉ **Pyrogram** : `{}`
 
-**Ketik** `{}alive` **untuk Mengecheck Bot**
+**Ketik** `alive` atau `Alive`
+**untuk Mengecheck Bot**
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
 """
 
@@ -50,7 +51,7 @@ async def main():
             ex = await bot.get_me()
             await join(bot)
             try:
-            	await app.send_message(BOTLOG_CHATID, MSG_ON.format(BOT_VER, py, pyro, CMD_HNDLR))
+            	await app.send_message(BOTLOG_CHATID, MSG_ON.format(BOT_VER, py, pyro))
             except BaseException as a:
                 LOGGER("✓").warning(f"{a}")
             LOGGER("✓").info("Startup Completed")
