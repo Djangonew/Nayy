@@ -7,7 +7,7 @@ from ubotlibs.ubot.database.accesdb import *
 
 
 
-@Ubot(["mms", "memes"], cmds)
+@Ubot(["mms", "memes", "Mms", "Memes"], "")
 async def _(client, message):
     if len(message.command) < 2:
         return await message.reply("<code>memes</code> [text]")
