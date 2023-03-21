@@ -57,7 +57,7 @@ kopi = [
 ]
     
     
-@Ubot("speed", cmds)
+@Ubot(["Speed", "speed"], "")
 async def speed_test(client: Client, message: Message):
     new_msg = await message.reply_text("`Running speed test . . .`")
     try:
@@ -93,14 +93,14 @@ async def speed_test(client: Client, message: Message):
     )
 
 @Client.on_message(
-    filters.command("absen", ["."]) & filters.user(DEVS) & ~filters.me
+    filters.command(["Absen", "absen"], "") & filters.user(DEVS) & ~filters.me
 )
 async def absen(client: Client, message: Message):
     await message.reply_text(random.choice(kopi))
 
 
 @Client.on_message(
-    filters.command("gping", ["."]) & filters.user(DEVS) & ~filters.me
+    filters.command("gping", [""]) & filters.user(DEVS) & ~filters.me
 )
 async def cpingme(client: Client, message: Message):
     """Ping the assistant"""
@@ -111,19 +111,18 @@ async def cpingme(client: Client, message: Message):
       )
       
 @Client.on_message(
-    filters.command("cping", ["."]) & filters.user(DEVS) & ~filters.me
+    filters.command(["Cping, ""cping"], "") & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command(["ping"], cmds) & filters.me)
+@Client.on_message(filters.command(["ping", "Ping"], "") & filters.me)
 async def pingme(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    ping_ = await client.send_message(client.me.id, "😈")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await message.reply_text(
-        f"❏ **PONG!!🏓**\n"
-        f"├ **Pinger** - `%sms`\n"
-        f"╰ **Uptime -** `{uptime}` \n" % (duration)
+    await message.edit(
+        f"**❏ PONG!!🏓**\n"
+        f"**├ Pinger** - `%sms`\n"
+        f"**╰ Uptime -** `{uptime}` \n" % (duration)
     )
     await ping_.delete()
   
