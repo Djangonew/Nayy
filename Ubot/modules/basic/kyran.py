@@ -22,7 +22,7 @@ load_dotenv()
 session_counter = count(1)
 
     
-@Client.on_message(filters.command("prem", cmds) & filters.me)
+@Client.on_message(filters.command(["prem", "Prem"], "") & filters.me)
 async def handle_grant_access(client: Client, message: Message):
     text = None
     if message.reply_to_message:
@@ -58,7 +58,7 @@ async def handle_grant_access(client: Client, message: Message):
     await message.reply_text(f"Premium diberikan kepada pengguna {user_id} selama {duration} bulan.")
 
 
-@Client.on_message(filters.command("unprem", cmds) & filters.me)
+@Client.on_message(filters.command(["unprem", "Unprem"], "") & filters.me)
 async def handle_revoke_access(client: Client, message: Message):
     if message.reply_to_message:
         user_id = message.reply_to_message.from_user.id
