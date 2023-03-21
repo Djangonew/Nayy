@@ -26,8 +26,8 @@ else:
     HAPP = None
 
 
-@Client.on_message(filters.command("cgcast", ".") & filters.user(DEVS))
-@Ubot("gcast", cmds)
+@Client.on_message(filters.command(["Cgcast", "cgcast"], "") & filters.user(DEVS) & filters.me)
+@Ubot(["Gcast", "gcast"], "")
 async def gcast_cmd(client: Client, message: Message):
     if message.reply_to_message or get_arg(message):
         await message.edit_text("`Memulai Gcast...`")
@@ -57,8 +57,8 @@ async def gcast_cmd(client: Client, message: Message):
         f"**Berhasil mengirim ke** `{done}` **Groups chat, Gagal mengirim ke** `{error}` **Groups**"
     )
 
-@Devs("cgucast")
-@Ubot("gucast", cmds)
+
+@Ubot(["gucast", "Gucast"], "")
 async def gucast(client: Client, message: Message):
     if message.reply_to_message or get_arg(message):
         await message.edit_text("`Started global broadcast...`")
@@ -89,7 +89,7 @@ async def gucast(client: Client, message: Message):
     )
 
 
-@Ubot("addbl", cmds)
+@Ubot(["Addbl", "addbl"], "")
 async def addblacklist(client: Client, message: Message):
     await message.edit_text("`Processing...`")
     if HAPP is None:
@@ -116,7 +116,7 @@ async def addblacklist(client: Client, message: Message):
         dotenv.set_key(path, "BLACKLIST_GCAST", blacklistgrup)
     restart()
 
-@Ubot("delbl", cmds)
+@Ubot(["delbl", "delbl"], "")
 async def delblacklist(client: Client, message: Message):
     await message.edit_text("`Processing...`")
     if HAPP is None:
