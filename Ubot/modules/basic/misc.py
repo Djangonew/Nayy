@@ -37,7 +37,7 @@ else:
         f" ▰▱▰▱°▱▱°▱▰▱▰\n"
     )
 
-@Client.on_message(filters.command("alive", ["?", "!", ".", "-", "*", "^"]) & filters.me)
+@Client.on_message(filters.command(["alive", "Alive"], "") & filters.me)
 async def alive(client: Client, message: Message):
     bot_username = (await app.get_me()).username
     try:
@@ -51,7 +51,7 @@ async def alive(client: Client, message: Message):
         print(f"{e}")
 
 
-@Ubot("id", cmds)
+@Ubot(["id", "Id"], "")
 async def get_id(bot: Client, message: Message):
     file_id = None
     user_id = None
