@@ -104,7 +104,7 @@ async def extract_user_and_reason(message, sender_chat=False):
 async def extract_user(message):
     return (await extract_user_and_reason(message))[0]
 
-@Ubot("unblock", cmds)
+@Ubot(["unblock", "Unblock"], "")
 async def unblock_user_func(client: Client, message: Message):
     user_id = await extract_user(message)
     tex = await message.reply_text("`Processing . . .`")
@@ -119,7 +119,7 @@ async def unblock_user_func(client: Client, message: Message):
     await message.edit(f"**Berhasil membuka blokir** {umention}")
 
 
-@Ubot("block", cmds)
+@Ubot(["block", "Block"], "")
 async def block_user_func(client: Client, message: Message):
     user_id = await extract_user(message)
     tex = await message.reply_text("`Processing . . .`")
@@ -134,7 +134,7 @@ async def block_user_func(client: Client, message: Message):
     await tex.edit_text(f"**Berhasil mem-blokir** {umention}")
 
 
-@Ubot("setname", cmds)
+@Ubot(["setname", "Setname"], "")
 async def setname(client: Client, message: Message):
     tex = await message.reply_text("`Processing . . .`")
     if len(message.command) == 1:
@@ -154,7 +154,7 @@ async def setname(client: Client, message: Message):
         )
 
 
-@Ubot("setbio", cmds)
+@Ubot(["setbio", "Setbio"], "")
 async def set_bio(client: Client, message: Message):
     tex = await message.edit_text("`Processing . . .`")
     if len(message.command) == 1:
@@ -169,7 +169,7 @@ async def set_bio(client: Client, message: Message):
     else:
         return await tex.edit("Berikan text untuk diatur sebagai bio.")
 
-@Ubot("setpp", cmds)
+@Ubot(["setpp", "Setpp"], "")
 async def set_pfp(client: Client, message: Message):
     replied = message.reply_to_message
     if (
