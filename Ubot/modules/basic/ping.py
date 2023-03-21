@@ -124,5 +124,4 @@ async def pingme(client: Client, message: Message):
         f"**├ Pinger** - `%sms`\n"
         f"**╰ Uptime -** `{uptime}` \n" % (duration)
     )
-    await ping_.delete()
   
