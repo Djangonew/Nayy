@@ -2,7 +2,6 @@ flask
 gunicorn
 gpytranslate
 googletrans
-pytgcalls==3.0.0.dev24
 openai
 uvloop
 ffmpeg-python
@@ -37,7 +36,6 @@ prettytable
 git+https://github.com/Itz-fork/py-trans.git
 reportlab
 svglib
-speedtest-cli==2.1.3
 tgcrypto 
 textblob
 tracemoepy
