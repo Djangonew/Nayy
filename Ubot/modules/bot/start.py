@@ -209,7 +209,7 @@ async def start_(client: Client, message: Message):
               InlineKeyboardButton(text="✨ Hubungi Admin✨", callback_data="start_admin"),
                 ],
                 [
-              InlineKeyboardButton(text="💌 Support", url="https://t.me/kynansupport"),
+              InlineKeyboardButton(text="💌 Support", url="https://t.me/memek"),
                 ],
             ]
         ),
