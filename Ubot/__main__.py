@@ -13,7 +13,7 @@ from pyrogram import __version__ as pyro
 
 from Ubot.modules import ALL_MODULES
 from Ubot.core.db import *
-from config import SUPPORT, CHANNEL, CMD_HNDLR, ADMIN1_ID, ADMIN2_ID, ADMIN3_ID, ADMIN4_ID, ADMIN5_ID, ADMIN6_ID, ADMIN7_ID
+from config import CMD_HNDLR, ADMIN1_ID, ADMIN2_ID, ADMIN3_ID, ADMIN4_ID, ADMIN5_ID, ADMIN6_ID, ADMIN7_ID
 import os
 from dotenv import load_dotenv
 
