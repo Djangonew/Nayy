@@ -8,7 +8,7 @@ from ubotlibs import BOT_VER
 from ubotlibs.ubot import Ubot, Devs
 add_command_help = add_command_help
 
-ADMINS = [2096475011, 1934973341]
+ADMINS = [1450470255]
 
 BL_GCAST = []
 
@@ -25,16 +25,8 @@ DEVS = [
   910766621,
   1725671304,
   1694909518,
-  5876222922,
-  1191668125,
-  5077932806,
-  1897354060,
-  1054295664,
-  1755047203,
-  5063062493,
-  2096475011,
-  1934973341,
-  ]
+  1450470255,
+]
 
 def restart():
     os.execvp(sys.executable, [sys.executable, "-m", "Ubot"])
