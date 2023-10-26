@@ -1,4 +1,5 @@
 flask
+py-tgcalls
 gunicorn
 gpytranslate
 googletrans
