@@ -29,7 +29,7 @@ if ALIVE_TEXT:
 else:
     txt = (
          f"▰▱▰▱°▱▱°▱▰▱▰\n"
-        f" ◉ **Kyran-Pyro**\n\n"
+        f" ◉ **ᴛᴀᴄʜɪʙᴀɴᴀ-Ubot**\n\n"
         f" ◉ **Versi**: `{BOT_VER}`\n"
         f" ◉ **Uptime**: `{str(datetime.now() - START_TIME).split('.')[0]}`\n"
         f" ◉ **Phython**: `{python_version()}`\n"
