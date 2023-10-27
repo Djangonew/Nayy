@@ -84,7 +84,7 @@ START_OTHER_USERS_TEXT = get_config(
     "START_OTHER_USERS_TEXT",
     (
         f"""
-        👋 **Halo Saya Adalah New-Ubot Pyro**
+        👋 **Halo Saya Adalah Ubot Tachibana**
         """
     )
 )
