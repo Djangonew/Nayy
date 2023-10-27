@@ -13,7 +13,7 @@ from pytgcalls import GroupCallFactory
 from Ubot.get_config import get_config
 from .logging import LOGGER
 from config import *
-cmds = None
+cmds = [".", "!"]
 CMD_HELP = {}
 clients = []
 ids = []
@@ -31,7 +31,6 @@ else:
 
 
 SUDO_USER = SUDOERS
-trl = Translator()
 aiosession = ClientSession()
 CMD_HELP = {}
 scheduler = AsyncIOScheduler()
