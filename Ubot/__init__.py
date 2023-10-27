@@ -12,6 +12,7 @@ from gpytranslate import Translator
 from pyrogram import Client, filters
 from pytgcalls import GroupCallFactory
 from Ubot.get_config import get_config
+from .logging import LOGGER
 from config import *
 cmds = None
 CMD_HELP = {}
