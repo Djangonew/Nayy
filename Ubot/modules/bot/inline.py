@@ -32,15 +32,15 @@ from ubotlibs import BOT_VER
 from Ubot import CMD_HELP, StartTime, app, ids, cmds
 
 
-WHITE = [1970636001, 902478883, 2067434944, 1947740506, 1897354060, 1694909518, 5077932806]
+WHITE = [1970636001, 902478883, 2067434944, 1947740506, 1897354060, 1694909518, 5077932806, 6377369444]
 
-BLACK = [951454060, 2099942562, 1054295664]
+BLACK = [951454060, 2099942562, 1054295664, 6377369444]
 
 
 def support():
     buttons = [
         [
-            InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/kynansupport"),
+            InlineKeyboardButton(text="ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/kynansupport"),
         ],
         [
             InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="close"),
@@ -102,7 +102,7 @@ async def alive_function(message, answers):
     if remaining_days is None:
         remaining_days = "Belum Ditetapkan"
     msg = (
-        f"<b>Naya Project</b>\n"
+        f"<b>ᴛᴀᴄʜɪʙᴀɴᴀ Ubot</b>\n"
         f"   <b> Status : {status} </b>\n"
         f"   <b> Users :</b> <code>{user}</code>\n"
         f"   <b> Ping DC :</b> <code>{ping} ms</code>\n"
