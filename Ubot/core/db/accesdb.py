@@ -86,7 +86,7 @@ def check_access(func):
         user_id = message.from_user.id
         user_access = await check_user_access(user_id)
         if user_id not in ADMINS and not user_access:
-            await message.reply_text("Maaf, Anda tidak memiliki akses untuk menggunakan bot ini.\n Silakan ke @kynansupport untuk mendapatkan akses dari Admin disana.")
+            await message.reply_text("Maaf, Anda tidak memiliki akses untuk menggunakan bot ini.\n Silakan hubungin admin @Mmeirra.")
             return
         await func(client, message)
     return wrapper
