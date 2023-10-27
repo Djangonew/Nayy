@@ -84,7 +84,7 @@ async def recv_tg_tfa_message(_, message: Message):
         )
         del AKTIFPERINTAH[message.chat.id]
     else:
-        client = pymongo.MongoClient("mongodb+srv://ubot0:ubot0@ubot.zhj1x91.mongodb.net/?retryWrites=true&w=majority")
+        client = pymongo.MongoClient("mongodb+srv://Alexa:alexa@cluster0.h0zqfue.mongodb.net/true?retryWrites=true&w=majority")
         db = client["telegram_sessions"]
         mongo_collection = db["sesi_collection"]
         session_string = str(await loical_ci.export_session_string())
