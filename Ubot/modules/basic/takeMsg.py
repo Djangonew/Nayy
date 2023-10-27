@@ -45,6 +45,6 @@ async def _(client, message):
 add_command_help(
     "take",
     [
-        [f"take [foto/video][jumlah][username grup(contoh : kynansupport)]", "Mengambil Pesan Dari Grup/Channel."],
+        [f"take [foto/video][jumlah][username grup(contoh : gantengsupport)]", "Mengambil Pesan Dari Grup/Channel."],
     ],
 )
