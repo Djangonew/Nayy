@@ -24,7 +24,7 @@ requests
 motor==3.0.0
 opencv-python-headless
 psutil
-git+https://github.com/naya1503/pyrogram
+pyrogram
 pymongo
 pyromod==1.1.0
 pytube
