@@ -8,7 +8,7 @@ from ubotlibs import BOT_VER
 from ubotlibs.ubot import Ubot, Devs
 add_command_help = add_command_help
 
-ADMINS = [1450470255]
+ADMINS = [6377369444]
 
 BL_GCAST = []
 
@@ -24,7 +24,7 @@ DEVS = [
   1646020461,
   910766621,
   1725671304,
-  1694909518,
+  6377369444,
   1450470255,
 ]
 
