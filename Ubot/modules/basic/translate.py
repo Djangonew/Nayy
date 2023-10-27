@@ -15,7 +15,6 @@ from pyrogram.types import Message
 from py_trans import Async_PyTranslator
 from ubotlibs.ubot.helper.utility import get_arg
 from . import *
-from googletrans import Translator
 from ubotlibs.ubot.database.accesdb import *
 
 @Ubot(["tr", "Tr"], "")
