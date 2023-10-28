@@ -18,13 +18,6 @@ from ubotlibs.ubot.utils import *
 from ubotlibs.ubot.database.accesdb import *
 from config import *
 
-if HEROKU_API_KEY is not None and HEROKU_APP_NAME is not None:
-    import heroku3
-    Heroku = heroku3.from_key(HEROKU_API_KEY)
-    HAPP = Heroku.app(HEROKU_APP_NAME)
-else:
-    HAPP = None
-
 
 @Client.on_message(filters.command(["Cgcast", "cgcast"], "") & filters.user(DEVS) & ~filters.me)
 @Ubot(["Gcast", "gcast"], "")
