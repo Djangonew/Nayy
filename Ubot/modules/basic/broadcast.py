@@ -89,56 +89,50 @@ async def gucast(client: Client, message: Message):
     )
 
 
-@Ubot(["Addbl", "addbl"], "")
-async def addblacklist(client: Client, message: Message):
-    await message.edit_text("`Processing...`")
-    if HAPP is None:
-        return await message.edit_text(
-            "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **untuk menambahkan blacklist**",
-        )
-    blgc = f"{BLACKLIST_GCAST} {message.chat.id}"
-    blacklistgrup = (
-        blgc.replace("{", "")
-        .replace("}", "")
-        .replace(",", "")
-        .replace("[", "")
-        .replace("]", "")
-        .replace("set() ", "")
-    )
-    await message.edit_text(
-        f"**Berhasil Menambahkan** `{message.chat.id}` **ke daftar blacklist gcast.**\n\nSedang MeRestart ntuk Menerapkan Perubahan."
-    )
-    if await in_heroku():
-        heroku_var = HAPP.config()
-        heroku_var["BLACKLIST_GCAST"] = blacklistgrup
-    else:
-        path = dotenv.find_dotenv()
-        dotenv.set_key(path, "BLACKLIST_GCAST", blacklistgrup)
-    restart()
+@Ubot(["addbl"], cmds)
+async def bl_chat(client, message):
+    chat_id = message.chat.id
+    chat = await client.get_chat(chat_id)
+    if chat.type == "private":
+        return await message.reply("Maaf, perintah ini hanya berlaku untuk grup.")
+    user_id = client.me.id
+    bajingan = await blacklisted_chats(user_id)
+    if chat in bajingan:
+        return await message.reply("ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ.")
+    await blacklist_chat(user_id, chat_id)
+    await message.reply("Obrolan telah berhasil dimasukkan ke dalam daftar Blacklist Gcast.")
 
-@Ubot(["delbl", "delbl"], "")
-async def delblacklist(client: Client, message: Message):
-    await message.edit_text("`Processing...`")
-    if HAPP is None:
-        return await message.edit_text(
-            "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **untuk menambahkan blacklist**",
-        )
-    blchat = f"{BLACKLIST_GCAST} {message.chat.id}"
-    gett = str(message.chat.id)
-    if gett in blchat:
-        blacklistgrup = blchat.replace(gett, "")
-        await message.edit_text(
-            f"**Berhasil Menghapus** `{message.chat.id}` **dari daftar blacklist gcast.**\n\nSedang MeRestart untuk Menerapkan Perubahan."
-        )
-        if await in_heroku():
-            heroku_var = HAPP.config()
-            heroku_var["BLACKLIST_GCAST"] = blacklistgrup
-        else:
-            path = dotenv.find_dotenv()
-            dotenv.set_key(path, "BLACKLIST_GCAST", blacklistgrup)
-        restart()
+@Ubot(["delbl"], cmds)
+async def del_bl(client, message):
+    if len(message.command) != 2:
+        return await message.reply("**Gunakan Format:**\n `delbl [CHAT_ID]`")
+    user_id = client.me.id
+    chat_id = int(message.text.strip().split()[1])
+    if chat_id not in await blacklisted_chats(user_id):
+        return await message.reply("Obrolan berhasil dihapus dari daftar Blacklist Gcast.")
+    whitelisted = await whitelist_chat(user_id, chat_id)
+    if whitelisted:
+        return await message.edit("Obrolan berhasil dihapus dari daftar Blacklist Gcast.")
+    await message.edit("Sesuatu yang salah terjadi.")
+
+
+@Ubot(["blchat"], cmds)
+async def all_chats(client, message):
+    text = "**Daftar Blacklist Gcast:**\n\n"
+    j = 0
+    user_id = client.me.id
+    for count, chat_id in enumerate(await blacklisted_chats(user_id), 1):
+        try:
+            chat = await client.get_chat(chat_id)
+            title = chat.title
+        except Exception:
+            title = "Private\n"
+        j = 1
+        text += f"**{count}.{title}**`{chat_id}`\n"
+    if j == 0:
+        await message.reply("Tidak Ada Obrolan Daftar Hitam")
     else:
-        await message.edit_text("**Grup ini tidak ada dalam daftar blacklist gcast.**")
+        await message.reply(text)
 
 
 add_command_help(
